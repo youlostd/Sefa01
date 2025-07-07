@@ -1,0 +1,9 @@
+-std=c++17
+-fsanitize=null
+-fsanitize=unreachable
+-fsanitize=return
+-fsanitize=bool
+-fsanitize=pointer-overflow
+-fsanitize=signed-integer-overflow
+-fsanitize=integer-divide-by-zero
+-fsanitize=float-divide-by-zero
