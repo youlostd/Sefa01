@@ -1,0 +1,584 @@
+syntax = "proto3";
+
+package network;
+
+import "data_item.proto";
+
+/*********************************************************\
+ ** General Types
+\*********************************************************/
+
+message SyncPositionElement {
+  uint32 vid = 1;
+  uint32 x = 2;
+  uint32 y = 3;
+}
+
+message TGuildMemberInfo {
+  uint32 pid = 1;
+  uint32 grade = 2;
+  bool is_general = 3;
+  uint32 job = 4;
+  uint32 level = 5;
+  uint32 offer = 6;
+  bytes name = 7;
+}
+
+message TOnlinePlayerInfo {
+  uint32 pid = 1;
+  uint32 map_index = 2;
+  uint32 channel = 3;
+}
+
+message TTargetMonsterDropInfoTable {
+  uint32 level_limit = 1;
+  uint32 item_vnum = 2;
+  uint32 item_count = 3;
+}
+
+message TEventManagerTagTeam {
+  uint32 pid1 = 1;
+  bytes name1 = 2;
+  uint32 pid2 = 3;
+  bytes name2 = 4;
+}
+
+/*********************************************************\
+ ** DB<->Game (Loading) Types
+\*********************************************************/
+
+message TCrystalProto {
+  uint32 process_level = 1;
+  uint32 clarity_type = 2;
+  uint32 clarity_level = 3;
+  repeated TItemAttribute applies = 4;
+  uint32 required_fragments = 5;
+}
+
+message TMobSkillLevel {
+  uint32 vnum = 1;
+  uint32 level = 2;
+}
+
+message TMobTable {
+  uint32 vnum = 1;
+  bytes name = 2;
+  
+  uint32 type = 3;
+  uint32 rank = 4;
+  uint32 battle_type = 5;
+  uint32 level = 6;
+  uint32 size = 7;
+  
+  uint32 gold_min = 8;
+  uint32 gold_max = 9;
+  uint32 exp = 10;
+  uint32 max_hp = 11;
+  uint32 regen_cycle = 12;
+  uint32 regen_percent = 13;
+  uint32 def = 14;
+  
+  uint32 ai_flag = 15;
+  uint32 race_flag = 16;
+  uint32 immune_flag = 17;
+  
+  uint32 str = 18;
+  uint32 dex = 19;
+  uint32 con = 20;
+  uint32 int = 21;
+  uint32 damage_min = 22;
+  uint32 damage_max = 23;
+  
+  uint32 attack_speed = 24;
+  uint32 moving_speed = 25;
+  uint32 aggressive_hp_pct = 26;
+  uint32 aggressive_sight = 27;
+  uint32 attack_range = 28;
+  
+  repeated int32 enchants = 29;
+  repeated int32 resists = 30;
+  
+  uint32 resurrection_vnum = 31;
+  uint32 drop_item_vnum = 32;
+  
+  uint32 mount_capacity = 33;
+  uint32 on_click_type = 34;
+  
+  uint32 empire = 35;
+  bytes folder = 36;
+  
+  float dam_multiply = 37;
+  
+  uint32 summon_vnum = 38;
+  uint32 drain_sp = 39;
+  uint32 mob_color = 40;
+  uint32 polymorph_item_vnum = 41;
+  
+  repeated TMobSkillLevel skills = 42;
+  
+  uint32 berserk_point = 43;
+  uint32 stone_skin_point = 44;
+  uint32 god_speed_point = 45;
+  uint32 death_blow_point = 46;
+  uint32 revive_point = 47;
+  uint32 healer_point = 48;
+  
+  float scaling_size = 49;
+  
+  repeated bytes locale_name = 50;
+}
+
+message TRepeatedMobTable {
+  repeated TMobTable data = 1;
+}
+
+message TItemLimit {
+  uint32 type = 1;
+  int32 value = 2;
+}
+
+message TItemApply {
+  uint32 type = 1;
+  int32 value = 2;
+}
+
+message TItemTable {
+  uint32 vnum = 1;
+  uint32 vnum_range = 2;
+  bytes name = 3;
+  uint32 type = 4;
+  uint32 sub_type = 5;
+  
+  uint32 weight = 6;
+  uint32 size = 7;
+  
+  uint32 anti_flags = 8;
+  uint32 flags = 9;
+  uint32 wear_flags = 10;
+  uint32 immune_flags = 11;
+  
+  int64 gold = 12;
+  int64 shop_buy_price = 13;
+  
+  repeated TItemLimit limits = 14;
+  repeated TItemApply applies = 15;
+  repeated int32 values = 16;
+  repeated int32 sockets = 17;
+  
+  uint32 refined_vnum = 18;
+  uint32 refine_set = 19;
+  uint32 alter_to_magic_item_pct = 20;
+  uint32 specular = 21;
+  uint32 gain_socket_pct = 22;
+  
+  sint32 addon_type = 23;
+  
+  sint32 limit_real_time_first_use_index = 24;
+  sint32 limit_timer_based_on_wear_index = 25;
+
+  repeated bytes locale_name = 26;
+}
+
+message TRepeatedItemTable {
+  repeated TItemTable data = 1;
+}
+
+message TShopTable {
+  uint32 vnum = 1;
+  uint32 npc_vnum = 2;
+  
+  uint32 item_count = 3;
+  repeated TShopItemTable items = 4;
+}
+
+message TDataAuctionSearch {
+  message ItemType {
+    uint32 type = 1;
+    repeated uint32 sub_types = 2;
+  }
+
+  bytes search_text = 1;
+  repeated ItemType types = 2;
+  sint32 socket0 = 3;
+  sint32 value0 = 4;
+  uint32 include_anti_flag = 5;
+}
+
+message TExtendedDataAuctionSearch {
+  TDataAuctionSearch basic_data = 1;
+  
+  uint32 search_type = 2;
+  uint32 level_min = 3;
+  uint32 level_max = 4;
+  uint64 price_min = 5;
+  uint64 price_max = 6;
+  bool is_only_auction_item = 7;
+  bool is_only_self_item = 8;
+  bool is_single_price_order = 9;
+  uint32 sort_order1 = 10;
+  bool sort_order1_reversed = 11;
+  uint32 sort_order2 = 12;
+  bool sort_order2_reversed = 13;
+  uint32 sort_order3 = 14;
+  bool sort_order3_reversed = 15;
+}
+
+message TAuctionShopHistoryElement {
+  uint32 vnum = 1;
+  uint64 price = 2;
+  bytes buyer = 3;
+  uint32 date = 4;
+}
+
+message TSkillTable {
+  uint32 vnum = 1;
+  bytes name = 2;
+  uint32 type = 3;
+  uint32 max_level = 4;
+  uint32 splash_range = 5;
+  
+  bytes point_on = 6;
+  bytes point_poly = 7;
+  bytes sp_cost_poly = 8;
+  bytes duration_poly = 9;
+  bytes duration_sp_cost_poly = 10;
+  bytes cooldown_poly = 11;
+  bytes master_bonus_poly = 12;
+  bytes grand_master_add_sp_cost_poly = 13;
+  
+  uint32 flag = 14;
+  uint32 affect_flag = 15;
+  uint32 affect_flag_legendary = 16;
+  
+  bytes point_on2 = 17;
+  bytes point_poly2 = 18;
+  bytes duration_poly2 = 19;
+  uint32 affect_flag2 = 20;
+  uint32 affect_flag2_legendary = 21;
+  
+  bytes point_on3 = 22;
+  bytes point_poly3 = 23;
+  bytes duration_poly3 = 24;
+  
+  uint32 level_step = 25;
+  uint32 level_limit = 26;
+  uint32 pre_skill_vnum = 27;
+  uint32 pre_skill_level = 28;
+  
+  int32 max_hit = 29;
+  bytes splash_around_damage_adjust_poly = 30;
+  
+  uint32 skill_attr_type = 31;
+
+  uint32 target_range = 32;
+}
+
+message TRefineMaterial {
+  uint32 vnum = 1;
+  uint32 count = 2;
+}
+
+message TSwitchbotTable {
+  uint32 item_id = 1;
+  uint32 inv_cell = 2;
+  uint32 switcher_used = 3;
+  repeated TItemAttribute attrs = 4;
+  repeated TItemAttribute premium_attrs = 5;
+  bool use_premium = 6;
+  bool finished = 7;
+}
+
+message TRefineTable {
+  uint32 id = 1;
+  uint32 material_count = 2;
+  int64 cost = 3;
+  uint32 prob = 4;
+  repeated TRefineMaterial materials = 5;
+}
+
+message TWikiRefineInfo {
+  repeated TRefineMaterial materials = 1;
+  uint32 mat_count = 2;
+  int32 price = 3;
+}
+
+message TWikiChestDropInfo {
+  uint32 vnum_start = 1;
+  uint32 vnum_end = 2;
+}
+
+message TWikiItemOriginInfo {
+  uint32 vnum = 1;
+  bool is_mob = 2;
+}
+
+message TWikiInfoTable {
+  repeated TWikiRefineInfo refine_infos = 1;
+  repeated TWikiChestDropInfo chest_infos = 2;
+  bool is_common = 3;
+  uint32 origin_vnum = 4;
+}
+
+message TItemAttrTable {
+  bytes apply = 1;
+  uint32 apply_index = 2;
+  uint32 prob = 3;
+  repeated int32 values = 4;
+  repeated uint32 max_level_by_set = 5;
+}
+
+message TGuildLadderInfo {
+  bytes name = 1;
+  uint32 level = 2;
+  uint32 ladder_points = 3;
+  uint32 min_member = 4;
+  uint32 max_member = 5;
+}
+
+message TBuildingLand {
+  uint32 id = 1;
+  uint32 map_index = 2;
+  int32 x = 3;
+  int32 y = 4;
+  uint32 width = 5;
+  uint32 height = 6;
+  uint32 guild_id = 7;
+  uint32 guild_level_limit = 8;
+  int64 price = 9;
+}
+
+message TBuildingObjectMaterial {
+  uint32 item_vnum = 1;
+  uint32 count = 2;
+}
+
+message TBuildingObjectProto {
+  uint32 vnum = 1;
+  int64 price = 2;
+  
+  repeated TBuildingObjectMaterial materials = 3;
+  
+  uint32 upgrade_vnum = 4;
+  uint32 upgrade_limit_time = 5;
+  int32 life = 6;
+  repeated int32 region = 7;
+  
+  uint32 npc_vnum = 8;
+  int32 npc_x = 9;
+  int32 npc_y = 10;
+  
+  uint32 group_vnum = 11;
+  uint32 depend_on_group_vnum = 12;
+}
+
+message TBuildingObject {
+  uint32 id = 1;
+  uint32 land_id = 2;
+  uint32 vnum = 3;
+  uint32 map_index = 4;
+  int32 x = 5;
+  int32 y = 6;
+  
+  float x_rot = 7;
+  float y_rot = 8;
+  float z_rot = 9;
+  int32 life = 10;
+}
+
+message TGuildSafeboxInitial {
+  uint32 guild_id = 1;
+  uint32 size = 2;
+  bytes password = 3;
+  uint64 gold = 4;
+}
+
+message THorseUpgradeProto {
+  uint32 upgrade_type = 1;
+  uint32 level = 2;
+  uint32 level_limit = 3;
+  uint32 refine_id = 4;
+}
+
+message THorseBonusProto {
+  uint32 level = 1;
+  uint32 max_hp = 2;
+  uint32 max_hp_item = 3;
+  uint32 armor_pct = 4;
+  uint32 armor_item = 5;
+  uint32 monster_pct = 6;
+  uint32 monster_item = 7;
+  uint32 item_count = 8;
+}
+
+message TGayaShopData {
+  uint32 pos = 1;
+  uint32 vnum = 2;
+  uint32 count = 3;
+  uint32 price = 4;
+}
+
+message TAttrtreeProto {
+  uint32 row = 1;
+  uint32 col = 2;
+  uint32 apply_type = 3;
+  int32 max_apply_value = 4;
+  repeated uint32 refine_level = 5;
+}
+
+message TRuneProtoTable {
+  uint32 vnum = 1;
+  bytes name = 2;
+  uint32 group = 3;
+  uint32 sub_group = 4;
+  uint32 apply_type = 5;
+  bytes apply_eval = 6;
+}
+
+message TRunePointProtoTable {
+  uint32 point = 1;
+  uint32 refine_proto = 2;
+}
+
+message TXmasRewards {
+  uint32 day = 1;
+  uint32 vnum = 2;
+  uint32 count = 3;
+}
+
+message TSoulProtoTable {
+  uint32 vnum = 1;
+  uint32 soul_type = 2;
+  uint32 apply_type = 3;
+  repeated int32 apply_values = 4;
+}
+
+message TItemIDRangeTable {
+  uint32 min_id = 1;
+  uint32 max_id = 2;
+  uint32 usable_item_id_min = 3;
+}
+
+message TBattlepassData {
+  int32 progress = 1;
+  bytes name = 2;
+  bytes task = 3;
+  
+  uint32 reward_vnum = 4;
+  uint32 reward_count = 5;
+}
+
+message TAdminInfo {
+  int32 id = 1;
+  bytes account = 2;
+  bytes name = 3;
+  int32 authority = 4;
+}
+
+message TOfflineMessage {
+  bytes sender = 1;
+  bytes message = 2;
+  bool is_gm = 3;
+}
+
+message TGuildSafeboxLogTable {
+  uint32 type = 1;
+  uint32 pid = 2;
+  bytes player_name = 3;
+  TItemData item = 4;
+  uint64 gold = 5;
+  uint32 time = 6;
+}
+
+message TMapLocation {
+  repeated uint32 maps = 1;
+  bytes host_name = 2;
+  uint32 port = 3;
+  uint32 channel = 4;
+}
+
+message TEquipmentChangerTable {
+  uint32 pid = 1;
+  uint32 index = 2;
+  bytes page_name = 3;
+  repeated uint32 item_ids = 4;
+  uint32 rune_page = 5;
+}
+
+message TEquipmentPageInfo {
+  bytes page_name = 1;
+  repeated sint32 item_cells = 2;
+  uint32 rune_page = 3;
+}
+
+message TCombatZoneRankingPlayer {
+  bytes name = 1;
+  uint32 empire = 2;
+  uint32 points = 3;
+  uint32 rank = 4;
+}
+
+message TSimplePlayer {
+  uint32 id = 1;
+  bytes name = 2;
+  uint32 job = 3;
+  uint32 level = 4;
+  uint32 play_minutes = 5;
+
+  uint32 st = 6;
+  uint32 ht = 7;
+  uint32 dx = 8;
+  uint32 iq = 9;
+  
+  uint32 main_part = 10;
+  uint32 hair_part = 11;
+  uint32 acce_part = 12;
+  bool change_name = 13;
+  
+  int32 x = 14;
+  int32 y = 15;
+  int32 addr = 16;
+  uint32 port = 17;
+  uint32 skill_group = 18;
+  
+  uint32 guild_id = 19;
+  bytes guild_name = 20;
+
+  uint32 hair_base_part = 21;
+  uint32 last_playtime = 22;
+}
+
+message TAccountTable {
+  uint32 id = 1;
+  bytes login = 2;
+  bytes passwd = 3;
+  bytes hwid = 4;
+  bytes social_id = 5;
+  bytes status = 6;
+  uint32 empire = 7;
+  repeated TSimplePlayer players = 8;
+  uint32 tradeblock = 9;
+  uint32 hwid2ban = 10;
+  bytes hwid2 = 11;
+  bool coins = 12;
+  uint32 language = 13;
+  bool temp_login = 14;
+}
+
+message TItemPriceInfo {
+  uint32 vnum = 1;
+  int64 price = 2;
+}
+
+message TChannelStatus {
+  uint32 port = 1;
+  uint32 status = 2;
+}
+
+message TPacketLoginOnSetup {
+  uint32 id = 1;
+  bytes login = 2;
+  bytes social_id = 3;
+  bytes host = 4;
+  uint32 login_key = 5;
+  repeated uint32 client_keys = 6;
+}

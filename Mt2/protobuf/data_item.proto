@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+import "data_pet.proto";
+
+package network;
+
+message TItemPos {
+  uint32 window_type = 1;
+  uint32 cell = 2;
+}
+
+message TShopItemTable {
+  TItemData item = 1;
+  uint32 display_pos = 2;
+  uint32 price_item_vnum = 3;
+  bytes owner_name = 4;
+  
+  uint32 insertion_time = 5;
+  uint32 timeout_time = 6;
+  uint32 auction_type = 7;
+  
+  uint32 map_index = 8;
+  uint32 channel = 9;
+  
+  uint32 price_item_vnum2 = 10;
+  uint32 price2 = 11;
+}
+
+message TShopExTabData {
+  bytes name = 1;
+  uint32 coin_type = 2;
+  repeated TShopItemTable items = 3;
+}
+
+message TItemDropInfo {
+  uint32 vnum = 1;
+  uint32 count = 2;
+  int32 min_level = 3;
+  int32 max_level = 4;
+}
+
+message TItemAttribute {
+  uint32 type = 1;
+  sint32 value = 2;
+}
+
+message TItemData {
+  uint32 id = 1;
+  uint32 vnum = 2;
+  uint32 count = 3;
+  uint32 special_flag = 4;
+  repeated sint32 sockets = 5;
+  repeated TItemAttribute attributes = 6;
+  
+  TItemPos cell = 7;
+  uint32 owner = 8;
+  
+  int64 price = 9;
+  
+  bool is_gm_owner = 10;
+
+  TPetAdvancedTable pet_info = 11;
+}

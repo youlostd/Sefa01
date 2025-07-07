@@ -1,0 +1,13 @@
+option cpp_prototype = "headers.hpp => ./headers.hpp";
+option cpp_namespace = "network";
+
+// Client <-> Game-Server
+include "headers/cg_headers.hproto"
+include "headers/gc_headers.hproto"
+
+// Game-Server <-> Game-Server
+include "headers/gg_headers.hproto"
+
+// Game-Server <-> DB-Server
+include "headers/gd_headers.hproto"
+include "headers/dg_headers.hproto"

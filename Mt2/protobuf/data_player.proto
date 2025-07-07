@@ -1,0 +1,138 @@
+syntax = "proto3";
+
+message TPlayerSkill {
+  uint32 master_type = 1;
+  uint32 level = 2;
+  uint32 next_read = 3;
+  uint32 color = 4;
+  bool can_change_color = 5;
+
+  bool changed = 6;
+}
+
+message TQuickslot {
+  uint32 type = 1;
+  uint32 pos = 2;
+}
+
+message TPlayerFishEventSlot {
+  bool is_main = 1;
+  uint32 shape = 2;
+}
+
+message TRunePageData {
+  sint32 main_group = 1;
+  repeated uint32 main_vnum = 2;
+  sint32 sub_group = 3;
+  repeated uint32 sub_vnum = 4;
+}
+
+message TPlayerTable {
+  uint32 id = 1;
+  
+  bytes name = 2;
+  bytes ip = 3;
+  
+  uint32 job = 4;
+  uint32 voice = 5;
+  
+  uint32 level = 6;
+  uint32 level_step = 7;
+  uint32 st = 8;
+  uint32 ht = 9;
+  uint32 dx = 10;
+  uint32 iq = 11;
+  
+  uint32 exp = 12;
+  int64 gold = 13;
+  
+  uint32 dir = 14;
+  int32 x = 15;
+  int32 y = 16;
+  uint32 map_index = 17;
+  
+  int32 exit_x = 18;
+  int32 exit_y = 19;
+  uint32 exit_map_index = 20;
+  
+  int32 hp = 21;
+  int32 sp = 22;
+  
+  int32 playtime = 23;
+  
+  int32 stat_point = 24;
+  int32 skill_point = 25;
+  int32 sub_skill_point = 26;
+  int32 horse_skill_point = 27;
+  
+  repeated TPlayerSkill skills = 28;
+  
+  repeated TQuickslot quickslots = 29;
+  
+  uint32 part_base = 30;
+  repeated uint32 parts = 31;
+  uint32 part_hair_base = 32;
+  
+  uint32 skill_group = 33;
+  int32 alignment = 34;
+  
+  int32 stat_reset_count = 35;
+  
+  uint32 mount_state = 36;
+  bytes mount_name = 37;
+  uint32 mount_item_id = 38;
+  uint32 horse_grade = 39;
+  uint32 horse_elapsed_time = 40;
+  
+  uint32 logoff_interval = 41;
+  
+  repeated int32 premium_times = 42;
+  
+  uint32 inventory_max_num = 43;
+  uint32 uppitem_inv_max_num = 44;
+  
+  repeated bool data_changed = 45;
+  uint32 last_play_time = 46;
+  
+  TRunePageData rune_page_data = 47;
+  repeated uint32 runes = 48;
+  
+  uint32 fish_event_use_count = 49;
+  repeated TPlayerFishEventSlot fish_slots = 50;
+  
+  uint32 fakebuff_skill1 = 51;
+  uint32 fakebuff_skill2 = 52;
+  uint32 fakebuff_skill3 = 53;
+  
+  repeated uint32 attrtree = 54;
+  
+  uint32 equipment_page_index = 55;
+  
+  uint32 combat_zone_points = 56;
+  
+  uint32 animasphere = 57;
+  uint32 gaya = 58;
+  
+  uint32 skillbook_inv_max_num = 59;
+  uint32 stone_inv_max_num = 60;
+  uint32 enchant_inv_max_num = 61;
+}
+
+message TQuestTable
+{
+  uint32 pid = 1;
+  bytes name = 2;
+  bytes state = 3;
+  int32 value = 4;
+}
+
+message TPacketAffectElement
+{
+  uint32 type = 1;
+  uint32 apply_on = 2;
+  int32 apply_value = 3;
+  uint32 flag = 4;
+  int32 duration = 5;
+  int32 sp_cost = 6;
+  uint32 blend_color = 7;
+}

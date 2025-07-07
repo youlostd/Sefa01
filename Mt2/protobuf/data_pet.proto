@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package network;
+
+message TPetAdvancedSkillProto {
+  uint32 apply = 1;
+  string value_expr = 2;
+  bool is_heroic = 3;
+}
+
+message TPetAdvancedEvolveProto {
+  uint32 level = 1;
+  string name = 2;
+  uint32 refine_id = 3;
+  float scale = 4;
+  uint32 normal_skill_count = 5;
+  uint32 heroic_skill_count = 6;
+  uint32 skillpower = 7;
+  bool skillpower_rerollable = 8;
+}
+
+message TPetAdvancedAttrProto {
+  uint32 apply_level = 1;
+  uint32 apply_type = 2;
+  float value = 3;
+  uint32 refine_id = 4;
+  uint32 required_pet_level = 5;
+}
+
+message TPetAdvancedSkillData {
+  uint32 vnum = 1;
+  uint32 level = 2;
+  bool changed = 3;
+}
+
+message TPetAdvancedTable {
+  uint32 item_id = 1;
+  string name = 2;
+  
+  uint32 level = 3;
+  int64 exp = 4;
+  int64 exp_item = 5;
+  
+  repeated TPetAdvancedSkillData skills = 6;
+  
+  repeated uint32 attr_type = 7;
+  repeated uint32 attr_level = 8;
+  repeated bool attr_can_upgrade = 9;
+  
+  uint32 skillpower = 10;
+}
