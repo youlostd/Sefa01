@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="Cursors\cursor.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Cursors\cursor_attack.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Cursors\cursor_buy.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Cursors\cursor_camera_rotate.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Cursors\cursor_chair.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Cursors\cursor_door.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Cursors\cursor_hsize.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Cursors\cursor_hvsize.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Cursors\cursor_no.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Cursors\cursor_pick.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Cursors\cursor_sell.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Cursors\cursor_talk.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Cursors\cursor_vsize.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="metin2.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{2cf31714-19f1-4b35-bb0d-68714f21265f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protobuf">
+      <UniqueIdentifier>{4f16d613-5a8e-4d65-8aa7-1653368f75bb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbstractPlayer.h" />
+    <ClInclude Include="AbstractSingleton.h" />
+    <ClInclude Include="AccountConnector.h" />
+    <ClInclude Include="AffectFlagContainer.h" />
+    <ClInclude Include="defs.h" />
+    <ClInclude Include="except.h" />
+    <ClInclude Include="Export.h" />
+    <ClInclude Include="expr.h" />
+    <ClInclude Include="expreval.h" />
+    <ClInclude Include="funclist.h" />
+    <ClInclude Include="GameType.h" />
+    <ClInclude Include="GuildMarkDownloader.h" />
+    <ClInclude Include="GuildMarkUploader.h" />
+    <ClInclude Include="InstanceBase.h" />
+    <ClInclude Include="Locale_inc.h" />
+    <ClInclude Include="Locale_m2.h" />
+    <ClInclude Include="MarkImage.h" />
+    <ClInclude Include="MarkManager.h" />
+    <ClInclude Include="NetworkActorManager.h" />
+    <ClInclude Include="node.h" />
+    <ClInclude Include="Packet.h" />
+    <ClInclude Include="parser.h" />
+    <ClInclude Include="PythonAccountManager.h" />
+    <ClInclude Include="PythonApplication.h" />
+    <ClInclude Include="PythonAuction.h" />
+    <ClInclude Include="PythonBackground.h" />
+    <ClInclude Include="PythonCharacterManager.h" />
+    <ClInclude Include="PythonChat.h" />
+    <ClInclude Include="PythonCombatZone.h" />
+    <ClInclude Include="PythonConfig.h" />
+    <ClInclude Include="PythonEventManager.h" />
+    <ClInclude Include="PythonExceptionSender.h" />
+    <ClInclude Include="PythonExchange.h" />
+    <ClInclude Include="PythonGuild.h" />
+    <ClInclude Include="PythonIME.h" />
+    <ClInclude Include="PythonItem.h" />
+    <ClInclude Include="PythonMessenger.h" />
+    <ClInclude Include="PythonMiniMap.h" />
+    <ClInclude Include="PythonMyShopDecoManager.h" />
+    <ClInclude Include="PythonNetworkStream.h" />
+    <ClInclude Include="PythonNewWebbrowser.h" />
+    <ClInclude Include="PythonNonPlayer.h" />
+    <ClInclude Include="PythonPetAdvanced.h" />
+    <ClInclude Include="PythonPlayer.h" />
+    <ClInclude Include="PythonPlayerEventHandler.h" />
+    <ClInclude Include="PythonQuest.h" />
+    <ClInclude Include="PythonRune.h" />
+    <ClInclude Include="PythonSafeBox.h" />
+    <ClInclude Include="PythonShop.h" />
+    <ClInclude Include="PythonSkill.h" />
+    <ClInclude Include="PythonSystem.h" />
+    <ClInclude Include="PythonTextTail.h" />
+    <ClInclude Include="PythonWhisperManager.h" />
+    <ClInclude Include="PythonWikiModelViewManager.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="Test.h" />
+    <ClInclude Include="vallist.h" />
+    <ClInclude Include="VersionData.h" />
+    <ClInclude Include="AbstractApplication.h" />
+    <ClInclude Include="AbstractCharacterManager.h" />
+    <ClInclude Include="AbstractChat.h" />
+    <ClInclude Include="protobuf_cg_packets.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protobuf_data.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protobuf_data_item.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protobuf_data_pet.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protobuf_data_player.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protobuf_dg_packets.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protobuf_gc_packets.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protobuf_gd_packets.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="protobuf_gg_packets.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="headers.hpp">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="headers_basic.hpp">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AccountConnector.cpp" />
+    <ClCompile Include="AffectFlagContainer.cpp" />
+    <ClCompile Include="CameraProcedure.cpp" />
+    <ClCompile Include="except.cpp" />
+    <ClCompile Include="expr.cpp" />
+    <ClCompile Include="func.cpp" />
+    <ClCompile Include="funclist.cpp" />
+    <ClCompile Include="GameType.cpp" />
+    <ClCompile Include="GuildMarkDownloader.cpp" />
+    <ClCompile Include="GuildMarkUploader.cpp" />
+    <ClCompile Include="InstanceBase.cpp" />
+    <ClCompile Include="InstanceBaseBattle.cpp" />
+    <ClCompile Include="InstanceBaseEffect.cpp" />
+    <ClCompile Include="InstanceBaseEvent.cpp" />
+    <ClCompile Include="InstanceBaseMotion.cpp" />
+    <ClCompile Include="InstanceBaseMovement.cpp" />
+    <ClCompile Include="InstanceBaseTransform.cpp" />
+    <ClCompile Include="Locale_m2.cpp" />
+    <ClCompile Include="MarkImage.cpp" />
+    <ClCompile Include="MarkManager.cpp" />
+    <ClCompile Include="NetworkActorManager.cpp" />
+    <ClCompile Include="node.cpp" />
+    <ClCompile Include="parser.cpp" />
+    <ClCompile Include="PythonAccountManager.cpp" />
+    <ClCompile Include="PythonApplication.cpp" />
+    <ClCompile Include="PythonApplicationCamera.cpp" />
+    <ClCompile Include="PythonApplicationCursor.cpp" />
+    <ClCompile Include="PythonApplicationEvent.cpp" />
+    <ClCompile Include="PythonApplicationLogo.cpp" />
+    <ClCompile Include="PythonApplicationModule.cpp" />
+    <ClCompile Include="PythonApplicationProcedure.cpp" />
+    <ClCompile Include="PythonApplicationWebPage.cpp" />
+    <ClCompile Include="PythonAuction.cpp" />
+    <ClCompile Include="PythonBackground.cpp" />
+    <ClCompile Include="PythonBackgroundModule.cpp" />
+    <ClCompile Include="PythonCharacterManager.cpp" />
+    <ClCompile Include="PythonCharacterManagerModule.cpp" />
+    <ClCompile Include="PythonCharacterModule.cpp" />
+    <ClCompile Include="PythonChat.cpp" />
+    <ClCompile Include="PythonChatModule.cpp" />
+    <ClCompile Include="PythonCombatZone.cpp" />
+    <ClCompile Include="PythonConfig.cpp" />
+    <ClCompile Include="PythonConfigModule.cpp" />
+    <ClCompile Include="PythonEffectModule.cpp" />
+    <ClCompile Include="PythonEventManager.cpp" />
+    <ClCompile Include="PythonEventManagerMoudle.cpp" />
+    <ClCompile Include="PythonExceptionSender.cpp" />
+    <ClCompile Include="PythonExchange.cpp" />
+    <ClCompile Include="PythonExchangeModule.cpp" />
+    <ClCompile Include="PythonFlyModule.cpp" />
+    <ClCompile Include="PythonGameEventManagerModule.cpp" />
+    <ClCompile Include="PythonGuild.cpp" />
+    <ClCompile Include="PythonIME.cpp" />
+    <ClCompile Include="PythonIMEModule.cpp" />
+    <ClCompile Include="PythonItem.cpp" />
+    <ClCompile Include="PythonItemModule.cpp" />
+    <ClCompile Include="PythonItemPtrModule.cpp" />
+    <ClCompile Include="PythonMessenger.cpp" />
+    <ClCompile Include="PythonMiniMap.cpp" />
+    <ClCompile Include="PythonMiniMapModule.cpp" />
+    <ClCompile Include="PythonMyShopDecoManager.cpp" />
+    <ClCompile Include="PythonNetworkStream.cpp" />
+    <ClCompile Include="PythonNetworkStreamCommand.cpp" />
+    <ClCompile Include="PythonNetworkStreamEvent.cpp" />
+    <ClCompile Include="PythonNetworkStreamModule.cpp" />
+    <ClCompile Include="PythonNetworkStreamPhaseGame.cpp" />
+    <ClCompile Include="PythonNetworkStreamPhaseGameActor.cpp" />
+    <ClCompile Include="PythonNetworkStreamPhaseGameItem.cpp" />
+    <ClCompile Include="PythonNetworkStreamPhaseHandShake.cpp" />
+    <ClCompile Include="PythonNetworkStreamPhaseLoading.cpp" />
+    <ClCompile Include="PythonNetworkStreamPhaseLogin.cpp" />
+    <ClCompile Include="PythonNetworkStreamPhaseOffline.cpp" />
+    <ClCompile Include="PythonNetworkStreamPhaseSelect.cpp" />
+    <ClCompile Include="PythonNewWebbrowser.cpp" />
+    <ClCompile Include="PythonNonPlayer.cpp" />
+    <ClCompile Include="PythonNonPlayerModule.cpp" />
+    <ClCompile Include="PythonPackModule.cpp" />
+    <ClCompile Include="PythonPetAdvanced.cpp" />
+    <ClCompile Include="PythonPlayer.cpp" />
+    <ClCompile Include="PythonPlayerEventHandler.cpp" />
+    <ClCompile Include="PythonPlayerInput.cpp" />
+    <ClCompile Include="PythonPlayerInputKeyboard.cpp" />
+    <ClCompile Include="PythonPlayerInputMouse.cpp" />
+    <ClCompile Include="PythonPlayerModule.cpp" />
+    <ClCompile Include="PythonPlayerSkill.cpp" />
+    <ClCompile Include="PythonQuest.cpp" />
+    <ClCompile Include="PythonRune.cpp" />
+    <ClCompile Include="PythonRuneModule.cpp" />
+    <ClCompile Include="PythonSafeBox.cpp" />
+    <ClCompile Include="PythonShop.cpp" />
+    <ClCompile Include="PythonSkill.cpp" />
+    <ClCompile Include="PythonSoundManagerModule.cpp" />
+    <ClCompile Include="PythonSystem.cpp" />
+    <ClCompile Include="PythonSystemModule.cpp" />
+    <ClCompile Include="PythonTextTail.cpp" />
+    <ClCompile Include="PythonTextTailModule.cpp" />
+    <ClCompile Include="PythonWhisperManager.cpp" />
+    <ClCompile Include="PythonWhisperManagerModule.cpp" />
+    <ClCompile Include="PythonWikiModelViewManager.cpp" />
+    <ClCompile Include="PythonWikiModule.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+    <ClCompile Include="UserInterface.cpp" />
+    <ClCompile Include="vallist.cpp" />
+    <ClCompile Include="minIni.c" />
+    <ClCompile Include="protobuf_cg_packets.cpp">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protobuf_data.cpp">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protobuf_data_item.cpp">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protobuf_data_pet.cpp">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protobuf_data_player.cpp">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protobuf_dg_packets.cpp">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protobuf_gc_packets.cpp">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protobuf_gd_packets.cpp">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protobuf_gg_packets.cpp">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UserInterface.rc" />
+  </ItemGroup>
+</Project>
